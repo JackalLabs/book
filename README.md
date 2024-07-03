@@ -8,7 +8,7 @@ Welcome, to the Jackal Documentation, where you'll embark on a journey to discov
 
 In order to keep these docs up to date, they are open-source and hosted on GitHub. This means that if you find information that is out of date, or lacking in substance, you can submit edits of your own.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 All edits undergo a review process by the Jackal Labs team before being reflected here.
 {% endhint %}
 
