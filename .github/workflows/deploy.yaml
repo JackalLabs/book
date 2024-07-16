@@ -20,11 +20,11 @@ jobs:
 
       - name: Install Docute
         run: |
-            go install github.com/TheMarstonConnell/docute@21358b84c50257e13e4b8cb91a178d2ff8beecb3
+            go install github.com/TheMarstonConnell/docute@3f5f92ddce5061b65709b47fb4c2f7bad09b328e
 
       - name: Run Go executable
         run: |
-            docute generate --base="/book/"
+            docute generate --base="/book/" -t "Jackal Docs"
 
       - name: Setup Node.js (for Git commands)
         uses: actions/setup-node@v3
