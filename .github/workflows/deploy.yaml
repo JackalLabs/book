@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Docute
         run: |
-            go install github.com/TheMarstonConnell/docute@3a9735959c1e782bd2aa8b550360d6b2ad89f107
+            go install github.com/TheMarstonConnell/docute@4a57d309fdaf1be6e40b3d66898f81aa658d5c5f
 
       - name: Run Go executable
         run: |
