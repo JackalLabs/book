@@ -2,7 +2,7 @@
 
 The `rns` (Reverse Name Service) module is an essential component of the Jackal Protocol, providing a user-friendly naming system for blockchain addresses. The RNS module simplifies the process of interacting with complex addresses by mapping them to human-readable names. This module allows users to transfer tokens and permissions to files/folders stored on the Jackal Protocol using human readable names. It also makes up the core of the referral program from the storage module.
 
-### Overview[​](https://docs.jackalprotocol.com/docs/protocol/modules/rns#overview) <a href="#overview" id="overview"></a>
+### Overview
 
 The `rns` module manages the following aspects of the Reverse Name Service:
 

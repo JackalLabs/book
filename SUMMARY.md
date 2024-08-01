@@ -29,3 +29,4 @@
 ## Providing Storage
 
 * [Creating Storage Provider](providing-storage/creating-storage-provider.md)
+* [Sequoia Config](providing-storage/sequoia-config.md)

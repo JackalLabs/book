@@ -6,7 +6,7 @@ This guide assumes you are using the same machine as the full node.
 Perform the following steps as your `jackal` user.
 {% endhint %}
 
-### Creating A Wallet[​](https://docs.jackalprotocol.com/docs/nodes/validators/joining#creating-a-wallet) <a href="#creating-a-wallet" id="creating-a-wallet"></a>
+### Creating A Wallet
 
 We need to create a wallet and set the keyring password.
 
@@ -44,9 +44,9 @@ cp ~/.canine/WALLET_NAME.info ~/keyring_backup
 cp ~/.canine/keyhash ~/keyring_backup
 ```
 
-### Setting Up[​](https://docs.jackalprotocol.com/docs/nodes/validators/joining#setting-up) <a href="#setting-up" id="setting-up"></a>
+### Setting Up
 
-#### Configure Gas Prices[​](https://docs.jackalprotocol.com/docs/nodes/validators/joining#configure-gas-prices) <a href="#configure-gas-prices" id="configure-gas-prices"></a>
+#### Configure Gas Prices
 
 As a validator, you'll need to set a minimum gas price like so:
 
@@ -55,7 +55,7 @@ GAS="0.02ujkl"
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"$GAS\"/" $HOME/.canine/config/app.toml
 ```
 
-#### Create Your Validator[​](https://docs.jackalprotocol.com/docs/nodes/validators/joining#create-your-validator) <a href="#create-your-validator" id="create-your-validator"></a>
+#### Create Your Validator
 
 Before continuing, please note that `commission-max-change` and `commission-max-rate` cannot be changed once you set them. Your `commission-rate` may be changed once per day.
 

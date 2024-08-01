@@ -2,7 +2,7 @@
 
 The `jklmint` module is responsible for the management of the native JKL token within the Jackal Protocol. This module handles the issuance, distribution, and inflation of JKL tokens, ensuring a stable and secure token economy.
 
-### Overview[​](https://docs.jackalprotocol.com/docs/protocol/modules/jklmint#overview) <a href="#overview" id="overview"></a>
+### Overview
 
 The `jklmint` module manages the following aspects of the JKL token:
 
@@ -10,7 +10,7 @@ The `jklmint` module manages the following aspects of the JKL token:
 2. **Inflation**: Manages the annual inflation rate, maintaining a consistent token supply growth.
 3. **Rewards Distribution**: Handles the allocation of newly minted tokens as rewards for validators and delegators.
 
-#### Parameters[​](https://docs.jackalprotocol.com/docs/protocol/modules/jklmint#parameters) <a href="#parameters" id="parameters"></a>
+#### Parameters
 
 The `jklmint` module uses the following parameters to manage the JKL token economy:
 

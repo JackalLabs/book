@@ -1,12 +1,12 @@
 # Installing Full-Node
 
-### Pre-Requisites[​](https://docs.jackalprotocol.com/docs/nodes/install#pre-requisites) <a href="#pre-requisites" id="pre-requisites"></a>
+### Pre-Requisites
 
 There are a few things needed before installing.
 
 While logged in as the 'root' or 'admin' user, we add a 'jackal' user and give them root privileges.
 
-#### Enable Firewall Rules[​](https://docs.jackalprotocol.com/docs/nodes/install#enable-firewall-rules) <a href="#enable-firewall-rules" id="enable-firewall-rules"></a>
+#### Enable Firewall Rules
 
 Enabling the firewall is important to ensure your hardware remains secure. The following commands will add rules required for access on both validators and providers:
 
@@ -57,7 +57,7 @@ To                         Action      From
 26658                      ALLOW       Anywhere
 ```
 
-#### Create Jackal user[​](https://docs.jackalprotocol.com/docs/nodes/install#create-jackal-user) <a href="#create-jackal-user" id="create-jackal-user"></a>
+#### Create Jackal user
 
 ```
 sudo adduser --gecos "" jackal
@@ -70,7 +70,7 @@ Log in as the jackal user to complete the below steps:
 sudo su - jackal
 ```
 
-#### Installing required tools[​](https://docs.jackalprotocol.com/docs/nodes/install#installing-required-tools) <a href="#installing-required-tools" id="installing-required-tools"></a>
+#### Installing required tools
 
 This will install the necessary tools to build the jackal chain source, along with lz4 compression tool and jquery tool.
 
@@ -79,7 +79,7 @@ sudo apt update
 sudo apt install build-essential lz4 jq
 ```
 
-#### Installing Go[​](https://docs.jackalprotocol.com/docs/nodes/install#installing-go) <a href="#installing-go" id="installing-go"></a>
+#### Installing Go
 
 Follow more in-depth instructions to install Go v1.19 or higher [here](https://golang.org/doc/install).
 
@@ -112,7 +112,7 @@ Restarting the shell with youre profile settings or just rebasing them like so i
 source ~/.profile
 ```
 
-#### Firewall Configuration[​](https://docs.jackalprotocol.com/docs/nodes/nodes/installation#firewall-configuration) <a href="#firewall-configuration" id="firewall-configuration"></a>
+#### Firewall Configuration
 
 Configure UFW to only accept traffic on ports we use.
 
@@ -129,7 +129,7 @@ TIP
 
 Perform the next follow steps as your `jackal` user with 'sudo' permissions
 
-#### Creating a Service[​](https://docs.jackalprotocol.com/docs/nodes/nodes/installation#creating-a-service) <a href="#creating-a-service" id="creating-a-service"></a>
+#### Creating a Service
 
 You may want the daemon to run without you needing to supervise it. To turn the executable into a service follow these steps.
 
@@ -166,7 +166,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable canined.service
 ```
 
-### Building from Source[​](https://docs.jackalprotocol.com/docs/nodes/nodes/installation#building-from-source) <a href="#building-from-source" id="building-from-source"></a>
+### Building from Source
 
 Replace `<VERSION>` with the current running version.
 

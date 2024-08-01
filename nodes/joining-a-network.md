@@ -54,7 +54,7 @@ GAS="0.002ujkl"
 sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.canine/config/config.toml
 ```
 
-### Backing up key files[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#backing-up-key-files) <a href="#backing-up-key-files" id="backing-up-key-files"></a>
+### Backing up key files
 
 The created `node_key.json` and `priv_validator_key.json` cannot be recovered. These files _**must**_ be backed up.
 
@@ -66,9 +66,9 @@ cp ~/.canine/config/priv_validator_key.json ~/key_backup
 
 You should also keep an offline backup. Using a program like `WinSCP`, you can easily copy these files to your personal desktop for safe storage/backup.
 
-### Syncing to Current Height[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#syncing-to-current-height) <a href="#syncing-to-current-height" id="syncing-to-current-height"></a>
+### Syncing to Current Heightid="syncing-to-current-height"></a>
 
-#### Snapshot method[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#snapshot-method) <a href="#snapshot-method" id="snapshot-method"></a>
+#### Snapshot method
 
 Get a snapshot [here](https://polkachu.com/tendermint\_snapshots/jackal).
 
@@ -83,7 +83,7 @@ lz4 -c -d jackal.tar.lz4  | tar -x -C $HOME/.canine
 
 Then start the chain again.
 
-#### State Sync Method[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#state-sync-method) <a href="#state-sync-method" id="state-sync-method"></a>
+#### State Sync Method
 
 There are a couple of ways to go about doing state sync. First is the easier route. Visit [Ping.pub](https://ping.pub/jackal/statesync) for Jackals State Sync configuration settings.
 
@@ -137,7 +137,7 @@ State syncing can take up to a few minutes to complete. Watch the logs to ensure
 
 It will download, verify, and apply chuncks of blockchain data. When it finishes you will see it catching up to blocks
 
-#### State Sync Method 2[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#state-sync-method-2) <a href="#state-sync-method-2" id="state-sync-method-2"></a>
+#### State Sync Method 2
 
 The follow commandline code will edit your `config.toml` with the proper information for state syncing to the most recent snapshot 3000 blocks and beyond.
 
@@ -158,14 +158,14 @@ sed -i.bak -e "s|^trust_hash *=.*|trust_hash = \"$SYNC_BLOCK_HASH\"|" \
 
 When you state sync, you can start with the latest version of `canined`.
 
-#### Versions for Sync[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#versions-for-sync) <a href="#versions-for-sync" id="versions-for-sync"></a>
+#### Versions for Sync
 
 | block height | canined version |
 | ------------ | --------------- |
 | 45381        | 1.1.2           |
 | 0            | 1.1.0           |
 
-### Starting the daemon[​](https://docs.jackalprotocol.com/docs/nodes/nodes/mainnet#starting-the-daemon) <a href="#starting-the-daemon" id="starting-the-daemon"></a>
+### Starting the daemon
 
 Start the daemon and sync to the current height.
 

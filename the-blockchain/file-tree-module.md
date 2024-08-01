@@ -2,7 +2,7 @@
 
 The Jackal Filetree module is responsible for organizing and managing user files in a secure and user-friendly way. When a user uploads a file using the Storage module, the file is only accessible from the File ID (FID), which can be challenging to remember for every file uploaded to Jackal. Additionally, every single upload would be required to be public, or the user would need to keep track of every symmetric key used to encrypt the files and manually map them to the FIDs. To address this issue, the File Tree module implements a tree structure to store each file as an entry in the tree. Organizing this structure is also trivial as we can assign children to pseudo files that we call folders. Finally, to keep track of encryption keys, the protocol maps every file to its respective key, emphasizing the security and privacy posture that the File Tree module enables.
 
-## Folder Abstraction&#x20;
+## Folder Abstraction
 
 These, of course, are all abstractions of what's actually under the hood. The File Tree module doesn't actually handle any of the folder logic; the system believes it is storing files that act as metadata stores, which then update to reflect changes in folders. This gives the user experience the feeling that folders and files are separate entities in the tree, but in reality, they are identical.
 
