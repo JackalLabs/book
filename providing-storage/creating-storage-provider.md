@@ -4,7 +4,7 @@
 
 There are a few things needed before installing.
 
-While logged in as the 'root' or 'admin' user, we add a 'jackal' user and give them root privileges.
+While logged in as the `root` or `admin` user, we add a `jackal` user and give them root privileges.
 
 #### Enable Firewall Rules
 
@@ -30,7 +30,7 @@ If you are running a combined validator/provider, you need to allow all of the a
 sudo ufw enable
 ```
 
-After starting the firewall, verify all of the required rules are in place by running:
+After starting the firewall, verify all the required rules are in place by running:
 
 ```
 sudo ufw status verbose
@@ -58,7 +58,7 @@ sudo adduser --gecos "" jackal
 sudo usermod -aG sudo jackal
 ```
 
-Log in as the jackal user to complete the below steps:
+Log in as the `jackal` user to complete the below steps:
 
 ```
 sudo su - jackal
@@ -66,7 +66,7 @@ sudo su - jackal
 
 #### Installing required tools
 
-This will install the necessary tools to build the jackal chain source, along with lz4 compression tool and jquery tool.
+This will install the necessary tools to build the jackal chain source, along with `lz4` compression tool and `jquery` tool.
 
 ```
 sudo apt update
@@ -77,7 +77,7 @@ sudo apt install build-essential lz4 jq
 
 Follow more in-depth instructions to install Go v1.22 or higher [here](https://golang.org/doc/install).
 
-On Ububtu you can install it with:
+On Ubuntu you can install it with:
 
 ```
 GOVER=$(curl https://go.dev/VERSION?m=text)
@@ -100,7 +100,7 @@ if [ -f "/usr/local/go/bin/go" ] ; then
 fi
 ```
 
-Restarting the shell with youre profile settings or just rebasing them like so is required.
+Restarting the shell with your profile settings or just rebasing them like so is required.
 
 ```
 source ~/.profile
@@ -126,7 +126,7 @@ sudo apt install make
 make --version
 ```
 
-Build jprovd and source the .profile to ensure your shell can find jprovd. Confirm installation.
+Build `sequoia` and source the .profile to ensure your shell can find `sequoia`. Confirm installation.
 
 ```
 git clone https://github.com/JackalLabs/sequoia.git
