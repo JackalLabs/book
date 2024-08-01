@@ -113,7 +113,7 @@ Check latest version [here](https://github.com/JackalLabs/canine-provider/releas
 {% endhint %}
 
 {% hint style="info" %}
-'Setting Up' instructions must be followed fully to add necessary golang path info to the current users \~/.profile. If these steps are skipped, 'make install' will not build jprovd--the provider daemon. Please ensure to perform the below steps as the 'jackal' user you previously made.
+`Setting Up` instructions must be followed fully to add necessary golang path info to the current users `~/.profile`. If these steps are skipped, `make install` will not build `sequoia` (the provider daemon). Please ensure to perform the below steps as the `jackal` user you previously made.
 {% endhint %}
 
 Install make and confirm installation.
