@@ -21,6 +21,19 @@ git clone https://github.com/JackalLabs/book.git
 
 From there, you can edit any of the `.md` files, and add new ones to edit/create pages in the book.
 
+To test your edits, download [Docute!](https://github.com/TheMarstonConnell/docute). You can install it by running:
+```shell
+go install github.com/TheMarstonConnell/docute@latest
+```
+
+From here, you can test your changes by running the following commands and going to [localhost:9797](http://localhost:9797).
+
+```shell
+cd book
+docute generate
+docute host
+```
+
 #### Side Bar
 
 `SUMMARY.md` is a markdown representation of the side navigation bar which is compiled onto every page. Making changes here will change how you navigate through the book itself. Remember, any time you add a page, it is a good idea to add it to the sidebar to make it accessible unless you specifically want to nest it within other pages. 
