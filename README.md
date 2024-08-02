@@ -12,4 +12,15 @@ In order to keep these docs up to date, they are open-source and hosted on GitHu
 All edits undergo a review process by the Jackal Labs team before being reflected here.
 {% endhint %}
 
-TODO: Add example of creating an edit.
+Start by cloning the Jackal Book GitHub repo.
+```shell
+git clone https://github.com/JackalLabs/book.git
+```
+
+![Jackal Book Github Page](readme_imgs/img.png)
+
+From there, you can edit any of the `.md` files, and add new ones to edit/create pages in the book.
+
+#### Side Bar
+
+`SUMMARY.md` is a markdown representation of the side navigation bar which is compiled onto every page. Making changes here will change how you navigate through the book itself. Remember, any time you add a page, it is a good idea to add it to the sidebar to make it accessible unless you specifically want to nest it within other pages. 
