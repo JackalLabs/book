@@ -182,7 +182,7 @@ proof_threads: 1000
 ######################
 ```
 
-To learn what each field does please head over to [Sequoia Config](providing-storage/sequoia-config.md)
+To learn what each field does please head over to [Sequoia Config](providing-storage/sequoia-config.md).
 
 The main things to pay attention to are your `domain` and your `rpc_addr`/`grpc_addr`. Without these, set correctly your provider will simply not work.
 
