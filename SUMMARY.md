@@ -31,3 +31,7 @@
 * [Creating Storage Provider](providing-storage/creating-storage-provider.md)
 * [Sequoia Config](providing-storage/sequoia-config.md)
 * [Sequoia API](providing-storage/sequoia-api.md)
+
+## Developers
+
+* [Quickstart](devs/quickstart.md)
