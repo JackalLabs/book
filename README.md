@@ -34,6 +34,8 @@ docute generate
 docute host
 ```
 
+If you want more information about Docute, the documentation engine this site uses, check out the [Docute docs](https://themarstonconnell.github.io/docute/).
+
 #### Side Bar
 
 `SUMMARY.md` is a markdown representation of the side navigation bar which is compiled onto every page. Making changes here will change how you navigate through the book itself. Remember, any time you add a page, it is a good idea to add it to the sidebar to make it accessible unless you specifically want to nest it within other pages. 
