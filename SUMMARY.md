@@ -34,4 +34,4 @@
 
 ## Developers
 
-* [Quickstart](devs/quickstart.md)
+* [Quickstart](devs/jjs-quickstart.md)
