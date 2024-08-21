@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Go executable
         run: |
-            docute generate --base="/book/" -t "Jackal Docs"
+            docute generate -t "Jackal Docs"
 
       - name: Setup Node.js (for Git commands)
         uses: actions/setup-node@v3
