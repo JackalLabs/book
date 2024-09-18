@@ -32,6 +32,8 @@
 * [Sequoia Config](providing-storage/sequoia-config.md)
 * [Sequoia API](providing-storage/sequoia-api.md)
 
+[//]: # (* [Earning Rewards]&#40;providing-storage/earning.md&#41;)
+
 ## Developers
 
 * [Quickstart](devs/jjs-quickstart.md)
