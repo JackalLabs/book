@@ -65,7 +65,7 @@ const setup: IClientSetup = {
 
 const myClient = await ClientHandler.connect(setup)
 const storage: IStorageHandler = await myClient.createStorageHandler()
-storage.value.loadProviderPool() // load the available provider pool
+storage.loadProviderPool() // load the available provider pool
 ```
 
 Purchase storage if needed.
