@@ -5,6 +5,7 @@
 npm install @jackallabs/jackal.js
 ```
 
+## Init
 To get started building with Jackal, we first need to create a `StorageHandler`.
 
 ```typescript
@@ -68,6 +69,7 @@ const storage: IStorageHandler = await myClient.createStorageHandler()
 storage.loadProviderPool() // load the available provider pool
 ```
 
+## Purchasing Storage
 Purchase storage if needed.
 
 ```typescript
@@ -79,6 +81,7 @@ const options = {
 await storage.purchaseStoragePlan(options)
 ```
 
+## Upload Files
 Use your storage account to upload files.
 
 ```typescript
@@ -104,6 +107,7 @@ await storage.queuePublic(myPublicFiles)
 await storage.processAllQueues()
 ```
 
+## Downloading Files
 Download your file.
 ```typescript
 // create a tracker to monitor download progress
