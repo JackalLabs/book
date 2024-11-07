@@ -87,80 +87,80 @@ mod execute {
 
         let callback = Callback {
             contract: env.contract.address.to_string(),
-            msg: None, 
+            msg: None,
             outpost_owner: info.sender.to_string(),
         };
 
         let instantiate_msg = storage_outpost::types::msg::InstantiateMsg {
-            owner: Some(info.sender.to_string()), 
-            admin: Some(env.contract.address.to_string()), 
+            owner: Some(info.sender.to_string()),
+            admin: Some(env.contract.address.to_string()),
             channel_open_init_options: Some(channel_open_init_options),
             callback: Some(callback),
         };
 
         let label
-         = format!("storage_outpost-owned by: {}", &info.sender.to_string());
+            = format!("storage_outpost-owned by: {}", &info.sender.to_string());
 
         let cosmos_msg = storage_outpost_code_id.instantiate(
             instantiate_msg,
             label,
-            Some(env.contract.address.to_string()), 
+            Some(env.contract.address.to_string()),
         )?;
 
         let mut event = Event::new("FACTORY: create_ica_contract");
         event = event.add_attribute("info.sender", &info.sender.to_string());
 
-        Ok(Response::new().add_message(cosmos_msg).add_event(event)) 
+        Ok(Response::new().add_message(cosmos_msg).add_event(event))
     }
 
     pub fn map_user_outpost(
         deps: DepsMut,
         env: Env,
         info: MessageInfo,
-        outpost_owner: String, 
+        outpost_owner: String,
     ) -> Result<Response, ContractError> {
-
-        let lock = LOCK.may_load(deps.storage, &outpost_owner)?; 
+        let lock = LOCK.may_load(deps.storage, &outpost_owner)?;
 
         if let Some(true) = lock {
             LOCK.save(deps.storage, &outpost_owner, &false)?;
         } else {
-            return Err(ContractError::MissingLock {  })
+            return Err(ContractError::MissingLock {})
         }
 
-    USER_ADDR_TO_OUTPOST_ADDR.save(deps.storage, &outpost_owner, &info.sender.to_string())?;
+        USER_ADDR_TO_OUTPOST_ADDR.save(deps.storage, &outpost_owner, &info.sender.to_string())?;
 
-    let mut event = Event::new("FACTORY:map_user_outpost");
-    event = event.add_attribute("info.sender", &info.sender.to_string());
+        let mut event = Event::new("FACTORY:map_user_outpost");
+        event = event.add_attribute("info.sender", &info.sender.to_string());
 
-    Ok(Response::new().add_event(event)) 
+        Ok(Response::new().add_event(event))
     }
 
-mod query {
-    use crate::state::{USER_ADDR_TO_OUTPOST_ADDR};
+    mod query {
+        use crate::state::{USER_ADDR_TO_OUTPOST_ADDR};
 
-    use super::*;
+        use super::*;
 
-    pub fn state(deps: Deps) -> StdResult<ContractState> {
-        STATE.load(deps.storage)
-    }
-
-    pub fn user_outpost_address(deps: Deps, user_address: String) -> StdResult<String> {
-        USER_ADDR_TO_OUTPOST_ADDR.load(deps.storage, &user_address)
-    }
-
-    pub fn get_all_user_outpost_addresses(deps: Deps) -> StdResult<Vec<(String, String)>> {
-        let mut all_entries = Vec::new();
-    
-        let pairs = USER_ADDR_TO_OUTPOST_ADDR
-            .range(deps.storage, None, None, cosmwasm_std::Order::Ascending);
-    
-        for pair in pairs {
-            let (key, value) = pair?;
-            all_entries.push((key.to_string(), value));
+        pub fn state(deps: Deps) -> StdResult<ContractState> {
+            STATE.load(deps.storage)
         }
-    
-        Ok(all_entries)
+
+        pub fn user_outpost_address(deps: Deps, user_address: String) -> StdResult<String> {
+            USER_ADDR_TO_OUTPOST_ADDR.load(deps.storage, &user_address)
+        }
+
+        pub fn get_all_user_outpost_addresses(deps: Deps) -> StdResult<Vec<(String, String)>> {
+            let mut all_entries = Vec::new();
+
+            let pairs = USER_ADDR_TO_OUTPOST_ADDR
+                .range(deps.storage, None, None, cosmwasm_std::Order::Ascending);
+
+            for pair in pairs {
+                let (key, value) = pair?;
+                all_entries.push((key.to_string(), value));
+            }
+
+            Ok(all_entries)
+        }
     }
 }
 ```
