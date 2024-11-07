@@ -38,3 +38,5 @@
 
 * [Jackal.js Quickstart](devs/jjs-quickstart.md)
 * [Archway Quickstart](devs/archway-quickstart.md)
+* [Embedding Archway Contracts](devs/archway-custom.md)
+
