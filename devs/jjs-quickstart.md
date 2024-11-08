@@ -112,7 +112,7 @@ Download your file.
 ```typescript
 // create a tracker to monitor download progress
 const tracker = { progress: 0, chunks: [] }
-const myFileName = 'mySexyFileName.txt'
+const myFileName = 'myFileName.txt'
 
 // Home is the default root folder for all Jackal.js accounts
 const myFile = await storage.downloadFile(`Home/${myFileName}`, tracker)
