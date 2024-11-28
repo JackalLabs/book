@@ -119,3 +119,6 @@ const myFile = await storage.downloadFile(`Home/${myFileName}`, tracker)
 
 // do something with myFile
 ```
+
+## More!
+Check out a deep dive on Jackal.js [here](https://jackallabs.github.io/jackal.js/).
