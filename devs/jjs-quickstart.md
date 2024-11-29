@@ -9,7 +9,8 @@ npm install @jackallabs/jackal.js
 To get started building with Jackal, we first need to create a `StorageHandler`.
 
 ```typescript
-import type { IClientSetup, IStorageHandler, ClientHandler } from '@jackallabs/jackal.js'
+import { ClientHandler } from '@jackallabs/jackal.js'
+import type { IClientSetup, IStorageHandler } from '@jackallabs/jackal.js'
 
 const chainId = 'jackal-1'
 const mainnet = {
