@@ -39,7 +39,7 @@
 * [Jackal.js Quickstart](devs/jjs-quickstart.md)
 * [Archway Quickstart](devs/archway-quickstart.md)
 * [Embedding Archway Contracts](devs/archway-custom.md)
-* [Jackal Outpost Quickstart](devs/outpost-quickstart.md)
+* [EVM Outpost Quickstart](devs/outpost-quickstart.md)
 * [Jackal API Reference](https://internalapi.jackalprotocol.com)
 
 ## Apps

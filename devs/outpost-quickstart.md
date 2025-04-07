@@ -1,4 +1,11 @@
-# Jackal Outpost Quickstart
+# EVM (BASE) Outpost Quickstart
+
+Jackal Outposts are smart contracts that allow other blockchains to connect to the Jackal data layer.
+
+{% hint style="info" %}
+Note: Jackal EVM Outposts are currently available only on BASE mainnet network.
+{% endhint %}
+
 
 {% hint style="info" %}
 Jackal Outposts are in an open beta state. Please be aware that this documentation might change.
