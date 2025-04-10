@@ -80,7 +80,7 @@ Follow more in-depth instructions to install Go v1.22 or higher [here](https://g
 On Ubuntu you can install it with:
 
 ```
-GOVER=$(curl https://go.dev/VERSION?m=text)
+GOVER=$(curl https://go.dev/VERSION?m=text | head -1)
 wget https://golang.org/dl/${GOVER}.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GOVER}.linux-amd64.tar.gz
 ```
@@ -109,7 +109,7 @@ source ~/.profile
 ## Installing
 
 {% hint style="success" %}
-Check latest version [here](https://github.com/JackalLabs/canine-provider/releases).
+Check latest version [here](https://github.com/JackalLabs/sequoia/releases).
 {% endhint %}
 
 {% hint style="info" %}
