@@ -54,20 +54,6 @@ Lists every file stored on this provider.
 | `files`    | string array | Every merkle hash stored on this provider, as hex strings |
 
 
-### List Files `/list`
-#### Description
-Lists every file stored on this provider.
-#### Parameters
-| name | type |
-|------|------|
-| None | n/a  |
-#### Response
-| name       | type         | desc.                                                     |
-|------------|--------------|-----------------------------------------------------------|
-| `files`    | string array | Every merkle hash stored on this provider, as hex strings |
-
-
-
 ### List IPFS Peers `/ipfs/peers`
 #### Description
 Lists every connected IPFS peer ID.
@@ -130,7 +116,7 @@ Dumps the entire database state to JSON.
 |--------|-------------|---------------------|
 | `dump` | JSON Object | Entire DB as object |
 
-### Prometheus Metrics `/dump`
+### Prometheus Metrics `/metrics`
 #### Description
 Prometheus formatted metrics.
 #### Parameters
