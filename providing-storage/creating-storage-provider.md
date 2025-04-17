@@ -6,6 +6,15 @@ There are a few things needed before installing.
 
 While logged in as the `root` or `admin` user, we add a `jackal` user and give them root privileges.
 
+#### Increase UDP Buffer Size
+
+[Increasing](https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes) your UDP buffer size can dramatically improve IPFS transfer throughput. 
+
+```
+echo 'net.core.rmem_max=7500000' >> /etc/sysctl.conf
+echo 'net.core.wmem_max=7500000' >> /etc/sysctl.conf
+```
+
 #### Enable Firewall Rules
 
 Enabling the firewall is important to ensure your hardware remains secure. The following commands will add rules required for access on both validators and providers:
