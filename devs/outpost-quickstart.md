@@ -78,7 +78,7 @@ Jackal Outposts are in an open beta state. Please be aware that this documentati
     })
     ```
 
-11. Now you can use [typescript](https://gist.github.com/slightlyskepticalpotat/fa40f705eca2e324f03f881485ecd6a0) to
+11. Now you can use [typescript](https://gist.github.com/0foxes/c1c6669b7c35416993e2238930e849cb) to
     interact directly with Jackal.
     ```ts
     import { Merkletree } from "@jackallabs/dogwood-tree";
