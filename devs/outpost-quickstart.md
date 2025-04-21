@@ -117,9 +117,9 @@ Jackal Outposts are in an open beta state. Please be aware that this documentati
         }
 
         // URL of provider we upload to
-        const url = "https://mprov01.jackallabs.io/upload"; 
+        const url = "https://mprov01.jackallabs.io/v2/upload"; 
         // view all of them (https://api.jackalprotocol.com/jackal/canine-chain/storage/active_providers)
-
+    
         // Build our FormData object
         const formData = new FormData();
         formData.append("file", file);
@@ -138,6 +138,25 @@ Jackal Outposts are in an open beta state. Please be aware that this documentati
         if (!response.ok) {
             throw new Error(`Upload failed with status: ${response.status}`);
         }
-        console.log(response.json());
+    
+        const jobResponseData = await response.json();
+
+        const job = jobResponseData["job_id"]
+
+        const joburl = `https://mprov01.jackallabs.io/v2/status/${job}`
+
+        let complete = false
+        while (!complete) {
+          const response = await fetch(joburl);
+          const data = await response.json();
+          const progress = data["progress"];
+          if (progress == 100) {
+            complete = true
+            const cid = data["cid"];
+            console.log("cid:", cid)
+          } else {
+            await new Promise(r => setTimeout(r, 250));
+          }
+        }
     });
     ```
