@@ -34,7 +34,7 @@ docute generate
 docute host
 ```
 
-If you want more information about Docute, the documentation engine this site uses, check out the [Docute docs](https://themarstonconnell.github.io/docute/).
+If you want more information about Docute, the documentation engine this site uses, check out the [Docute docs](https://jackallabs.github.io/docute/).
 
 #### Side Bar
 
