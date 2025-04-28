@@ -93,7 +93,7 @@ await storage.upgradeSigner()
 await storage.initStorage()
 
 // load root directory if not already loaded
-await storage.loadDirectory('Home')
+await storage.loadDirectory({path: 'Home'})
 
 // upload encrypted file
 /* get your file into the browser */
