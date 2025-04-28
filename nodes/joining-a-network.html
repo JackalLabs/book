@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" id="docs-root"><head><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="description" content="
+
+After installing `canined`."/><title>Joining a Network - Jackal Docs</title><link type="image/png" href="/icon.png" rel="icon"/><link rel="stylesheet" href="/default.min.css"/><script src="/highlight.min.js"></script><script src="/go.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer=""/><base href="/"/><style>/*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */progress,sub,sup{vertical-align:baseline}*,::after,::before{box-sizing:border-box}html{font-family:system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';line-height:1.15;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4}body{margin:0}hr{height:0;color:inherit}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:ButtonText dotted 1px}:-moz-ui-invalid{box-shadow:none}legend{padding:0}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}</style><style>:root {
+	--primary: #E9F451;
+	--text: #1B1C16;
+	--background: #DDDCCE;
+	--secondary: #C6C5AD;
+	--title: #1B1C16;
+}</style><style>@font-face {
+    font-family: "teka";
+    src: url("teka-reg.woff") format('woff');
+}
+
+@font-face {
+    font-family: "teka";
+    src: url("teka-bold.woff") format('woff');
+    font-weight: bold;
+}
+
+html, body {
+    color: var(--text);
+    background-color: var(--background);
+    font-family: teka;
+}
+
+button {
+    cursor: pointer;
+}
+
+#header {
+    background-color: var(--title);
+    color: var(--background);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    padding-left: calc(24px + 1rem);
+    padding-right: 100px;
+
+    z-index: 10;
+}
+
+#header > * {
+    margin: 0px;
+}
+
+p > a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+p > img {
+    max-width: 800px;
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#logo {
+    height: 48px;
+    padding-bottom: 6px;
+}
+
+#main {
+    display: flex;
+    height: 100dvh;
+    width: 100vw;
+}
+
+#navbar {
+    padding: 1rem 20px 80px;
+
+    max-height: 100%;
+    overflow-y: scroll;
+
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    background-color: var(--secondary);
+    z-index: 5;
+}
+
+#navbar > h1:first-child {
+    display: none;
+}
+
+table {
+    background-color: var(--secondary);
+}
+
+td, th {
+    padding: 3px 2px;
+    border: 1px solid var(--text);
+    min-width: 100px;
+}
+
+thead {
+    font-size: 1rem;
+}
+
+#navbar > * {
+    margin: 0px;
+}
+
+#navbar > ul > li {
+    /*padding: 0rem 0rem 0rem 0.875rem;*/
+    margin: 0px;
+}
+
+
+#navbar > ul {
+    padding: 0rem 0.375rem 0rem 1.4rem;
+    margin: 0px;
+}
+
+#navbar > h2 {
+    padding: 1.5rem 0.375rem 0.375rem 1.25rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    line-height: 1rem;
+}
+
+#page {
+    padding-left: 20px;
+    padding-right: 80px;
+    overflow-y: scroll;
+    padding-bottom: 64px;
+}
+
+#page > h2 {
+    margin-top: 36px;
+}
+
+#navbar > li, #navbar > ul {
+    user-select: none;
+}
+
+
+li {
+    margin-top: 6px;
+}
+
+#nv {
+    overflow: scroll;
+}
+
+ul {
+    list-style: none;
+    font-style: normal;
+}
+
+#page > ul {
+    list-style: disc;
+}
+
+a.active {
+    font-weight: bold;
+    /*color: var(--primary);*/
+    background-color: var(--primary);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.dropdown {
+    cursor: pointer;
+}
+
+li.dropdown > ul {
+    display: none;
+}
+
+li.dropdown.open > ul {
+    display: block;
+}
+
+.dropdown.open {
+    font-style: italic;
+}
+
+#navbar > ul > li > a:hover,
+#navbar > ul > li > ul > li > a:hover {
+    background-color: var(--background);
+    transition: background-color 0.3s ease-in-out;
+}
+
+code {
+    font-weight: bold;
+    background-color: var(--secondary);
+}
+
+pre {
+    position: relative;
+}
+
+pre > button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.copy-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 4px 4px 2px;
+}
+
+.copy-button:hover {
+    background-color: var(--primary);
+}
+
+
+.copy-button::before {
+    content: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 256 256' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.2109 80.4211L20.2109 227.789L188.632 227.789L188.632 206.737L41.2636 206.737L41.2636 80.4211L20.2109 80.4211ZM62.3162 27.7895L62.3162 185.684L251.79 185.684L251.79 27.7895L62.3162 27.7895ZM230.737 48.8421L230.737 164.632L83.3688 164.632L83.3688 48.8421L230.737 48.8421Z' fill='%231B1C16'/%3E%3C/svg%3E%0A");
+    stroke: #3388aa;
+}
+
+pre > code {
+    font-weight: normal;
+}
+
+#navbar > ul > li > a,
+#navbar > ul > li > ul > li > a {
+    width: 100%;
+    display: inline-block;
+
+    padding: 0.375rem 0.375rem 0.375rem 0.375rem;
+    margin: 0px;
+}
+
+
+.hljs {
+    background-color: var(--secondary) !important;
+}
+
+.hint {
+    background-color: var(--primary);
+    padding: 1rem;
+    text-align: center;
+
+    margin: 2rem auto;
+    max-width: 80%;
+}
+
+
+/* SNACKBAR */
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: var(--text); /* Black background color */
+    color: var(--background); /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    top: 90px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        top: 60px;
+        opacity: 0;
+    }
+    to {
+        top: 90px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top: 60px;
+        opacity: 0;
+    }
+    to {
+        top: 90px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 90px;
+        opacity: 1;
+    }
+    to {
+        top: 60px;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 90px;
+        opacity: 1;
+    }
+    to {
+        top: 60px;
+        opacity: 0;
+    }
+}</style><style>
+#menu {
+    display: none;
+    position: absolute;
+    right: 16px;
+    top: 1rem;
+
+    background-color: #00000000;
+    border: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 24px;
+    color: var(--background);
+    width: min-content;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+
+    #menu {
+        display: block;
+
+
+    }
+
+    #main {
+        display: block;
+        /*grid-template-columns: 1fr 3fr;*/
+        /*grid-template-rows: 80px 1fr ;*/
+        /*grid-template-areas:*/
+        /*    "header header"*/
+        /*    "page page ";*/
+
+        overflow-y: scroll;
+        max-height: 100dvh;
+    }
+
+    #navbar {
+        box-sizing: border-box;
+        position: absolute;
+        top: 3.95rem;
+        left: 0;
+        width: 100vw;
+        height: 0vh;
+        grid-area: nav;
+        transition: height 0.4s;
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+        overflow-y: hidden;
+
+        background-color: var(--text);
+        color: var(--background);
+    }
+
+    #navbar > ul > li > a {
+        color: var(--background);
+    }
+
+    #navbar > ul > li > a.active {
+        color: var(--text);
+    }
+
+    #navbar.open {
+        height: calc(100vh - 3.95rem);
+        overflow-y: scroll;
+    }
+
+    #navbar.open > *:last-child {
+        margin-bottom: 160px;
+    }
+
+    #navbar.open > ul:nth-child(2) {
+        margin-top: 40px;
+    }
+
+    #page {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+        padding-top: 68px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        width: calc(100% - (24px + 1rem) * 2);
+
+    }
+
+    #header {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 4rem;
+        padding-left: 16px;
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
+
+    #main {
+        display: grid;
+        grid-template-columns: fit-content(33%) 3fr;
+        grid-template-rows: 80px 1fr;
+        grid-template-areas:
+            "header header"
+            "nav page ";
+    }
+
+    #navbar {
+        display: block;
+        grid-area: nav;
+    }
+
+    #page {
+        grid-area: page;
+    }
+
+    #header {
+        grid-area: header;
+    }
+
+}
+
+
+</style></head><body><div id="main"><div id="header"><img id="logo" src="logo.png" alt="site logo"/><div></div><button id="menu" aria-label="navigation menu button"><i class="fa fa-bars" id="bars"></i></button></div><div id="navbar"><html><head></head><body><h1 id="table-of-contents">Table of contents</h1>
+
+<h2 id="get-started-with-jackal">Get Started with Jackal</h2>
+
+<ul>
+<li><a href="README.html">Introduction</a></li>
+<li><a href="get-started-with-jackal/learn-about-jackal.html">Learn About Jackal</a></li>
+<li><a href="get-started-with-jackal/the-usdjkl-token.html">The $JKL Token</a></li>
+</ul>
+
+<h2 id="wallet">Wallet</h2>
+
+<ul>
+<li><a href="wallet/keplr.html">Keplr</a></li>
+<li><a href="wallet/leap.html">Leap</a></li>
+<li><a href="wallet/command-line.html">Command Line</a></li>
+</ul>
+
+<h2 id="the-blockchain">The Blockchain</h2>
+
+<ul>
+<li><a href="the-blockchain/storage-module.html">Storage Module</a></li>
+<li><a href="the-blockchain/file-tree-module.html">File Tree Module</a></li>
+<li><a href="the-blockchain/mint-module.html">Mint Module</a></li>
+<li><a href="the-blockchain/name-service-module.html">Name Service Module</a></li>
+</ul>
+
+<h2 id="nodes">Nodes</h2>
+
+<ul>
+<li><a href="nodes/hardware.html">Hardware</a></li>
+<li><a href="nodes/installing-full-node.html">Installing Full-Node</a></li>
+<li><a href="nodes/joining-a-network.html" class="active">Joining a Network</a></li>
+<li><a href="nodes/create-a-validator.html">Create a Validator</a></li>
+</ul>
+
+<h2 id="providing-storage">Providing Storage</h2>
+
+<ul>
+<li><a href="providing-storage/creating-storage-provider.html">Creating Storage Provider</a></li>
+<li><a href="providing-storage/sequoia-config.html">Sequoia Config</a></li>
+<li><a href="providing-storage/sequoia-api.html">Sequoia API</a></li>
+</ul>
+
+<h2 id="developers">Developers</h2>
+
+<ul>
+<li><a href="devs/jjs-quickstart.html">Jackal.js Quickstart</a></li>
+<li><a href="devs/archway-quickstart.html">Archway Quickstart</a></li>
+<li><a href="devs/archway-custom.html">Embedding Archway Contracts</a></li>
+<li><a href="devs/outpost-quickstart.html">EVM Outpost Quickstart</a></li>
+<li><a href="https://internalapi.jackalprotocol.com">Jackal API Reference</a></li>
+</ul>
+
+<h2 id="apps">Apps</h2>
+
+<ul>
+<li><a href="https://pindocs.jackalprotocol.com">Jackal Pin</a></li>
+</ul>
+</body></html></div><div id="page"><html><head></head><body><h1 id="joining-a-network">Joining a Network</h1>
+
+<h2 id="joining-testnet">Joining Testnet</h2>
+
+<p>After installing <code>canined</code>. You can join the testnet by following these steps:</p>
+
+<pre><code>canined init &lt;alias&gt; --chain-id=&lt;chain-id&gt;
+</code></pre>
+
+<p><div class="hint info">
+<code>chain-id</code> for testnet is currently <code>lupulella-2</code>.
+</div></p>
+
+<p>Then we want to replace our generated genesis file with the one used to start the network. We also need to set our peers and seeds.</p>
+
+<p>For an updated list of peers &amp; seeds, please check <a href="https://github.com/JackalLabs/jackal-chain-assets/blob/main/testnet/seeds.md">this page</a>.</p>
+
+<pre><code>wget -O ~/.canine/config/genesis.json https://raw.githubusercontent.com/JackalLabs/jackal-chain-assets/main/testnet/genesis.json
+
+export SEEDS=&#34;84f520678ef59ea02f942fa6323ec562ca5a3249@45.79.161.178:26656,cecc087977336da1e9ccd2c50097cd9e7d5e1874@141.95.33.39:26656&#34;
+sed -i.bak -e &#34;s/^seeds *=.*/seeds = \&#34;$SEEDS\&#34;/&#34; ~/.canine/config/config.toml
+</code></pre>
+
+<p>As a validator, you’ll need to set a minimum gas price like so:</p>
+
+<pre><code>GAS=&#34;0.002ujkl&#34;
+sed -i.bak -e &#34;s/^minimum-gas-prices *=.*/minimum-gas-prices = \&#34;$GAS\&#34;/&#34; $HOME/.canine/config/app.toml
+</code></pre>
+
+<h2 id="joining-mainnet">Joining Mainnet</h2>
+
+<p><div class="hint info">
+Perform the following as the <code>jackal</code> user.
+</div></p>
+
+<p>After installing <code>canined</code>. You can join the mainnet by following these steps:</p>
+
+<pre><code>canined init &#34;NODE_NAME&#34; --chain-id=jackal-1
+</code></pre>
+
+<p>Then we want to replace our generated genesis file with the one used to start the network.</p>
+
+<pre><code>wget -O ~/.canine/config/genesis.json https://cdn.discordapp.com/attachments/1002389406650466405/1034968352591986859/updated_genesis2.json
+
+SEEDS=$(wget https://raw.githubusercontent.com/JackalLabs/canine-mainnet-genesis/master/genesis/seeds.txt -q -O -)
+PEERS=`curl -sL https://raw.githubusercontent.com/JackalLabs/canine-mainnet-genesis/master/genesis/peers.txt | sort -R | head -n $PEERCOUNT | awk &#39;{print $1}&#39; | paste -s -d, -`
+GAS=&#34;0.002ujkl&#34;
+
+sed -i.bak -e &#34;s/^seeds *=.*/seeds = \&#34;$SEEDS\&#34;/; s/^persistent_peers *=.*/persistent_peers = \&#34;$PEERS\&#34;/&#34; $HOME/.canine/config/config.toml
+</code></pre>
+
+<h3 id="backing-up-key-files">Backing up key files</h3>
+
+<p>The created <code>node_key.json</code> and <code>priv_validator_key.json</code> cannot be recovered. These files <em><strong>must</strong></em> be backed up.</p>
+
+<pre><code>mkdir ~/key_backup
+cp ~/.canine/config/node_key.json ~/key_backup
+cp ~/.canine/config/priv_validator_key.json ~/key_backup
+</code></pre>
+
+<p>You should also keep an offline backup. Using a program like <code>WinSCP</code>, you can easily copy these files to your personal desktop for safe storage/backup.</p>
+
+<h3 id="syncing-to-current-heightid-syncing-to-current-height-a">Syncing to Current Heightid=“syncing-to-current-height”&gt;</h3>
+
+<h4 id="snapshot-method">Snapshot method</h4>
+
+<p>Get a snapshot <a href="https://polkachu.com/tendermint_snapshots/jackal">here</a>.</p>
+
+<p>For the sake of this guide, the snapshot we download is named <code>jackal.tar.lz4</code></p>
+
+<p>If you plan on becoming a validator, before using the <code>unsafe-reset-all</code> flag, always besure to back up your <code>priv_validator_state.json</code> file.</p>
+
+<pre><code>canined unsafe-reset-all --keep-addr-book
+lz4 -c -d jackal.tar.lz4  | tar -x -C $HOME/.canine
+</code></pre>
+
+<p>Then start the chain again.</p>
+
+<h4 id="state-sync-method">State Sync Method</h4>
+
+<p>There are a couple of ways to go about doing state sync. First is the easier route. Visit <a href="https://ping.pub/jackal/statesync">Ping.pub</a> for Jackals State Sync configuration settings.</p>
+
+<p>Next, copy these settings from Ping.pub to your <code>config.toml</code> in the <code>[statesync]</code> section.</p>
+
+<p>It should look similar to this:</p>
+
+<pre><code>#######################################################
+###         State Sync Configuration Options        ###
+#######################################################
+[statesync]
+# State sync rapidly bootstraps a new node by discovering, fetching, and restoring a state machine
+# snapshot from peers instead of fetching and replaying historical blocks. Requires some peers in
+# the network to take and serve state machine snapshots. State sync is not attempted if the node
+# has any local state (LastBlockHeight &gt; 0). The node will have a truncated block history,
+# starting from the height of the snapshot.
+enable = true
+
+# RPC servers (comma-separated) for light client verification of the synced state machine and
+# retrieval of state data for node bootstrapping. Also needs a trusted height and corresponding
+# header hash obtained from a trusted source, and a period during which validators can be trusted.
+#
+# For Cosmos SDK-based chains, trust_period should usually be about 2/3 of the unbonding time (~2
+# weeks) during which they can be financially punished (slashed) for misbehavior.
+rpc_servers = &#34;https://rpc.jackalprotocol.com:443,https://rpc.jackalprotocol.com:443&#34;
+trust_height = 333000
+trust_hash = &#34;1685850c2d115a86af9059bd3f36a4fbbb0e8ba7f37863d517b6d2f54116daca&#34;
+trust_period = &#34;168h&#34;  # 2/3 of unbonding time
+
+# Time to spend discovering snapshots before initiating a restore.
+discovery_time = &#34;15s&#34;
+
+# Temporary directory for state sync snapshot chunks, defaults to the OS tempdir (typically /tmp).
+# Will create a new, randomly named directory within, and remove it when done.
+temp_dir = &#34;&#34;
+
+# The timeout duration before re-requesting a chunk, possibly from a different
+# peer (default: 1 minute).
+chunk_request_timeout = &#34;10s&#34;
+
+# The number of concurrent chunk fetchers to run (default: 1).
+chunk_fetchers = &#34;42&#34;
+</code></pre>
+
+<p>State syncing can take up to a few minutes to complete. Watch the logs to ensure it’s happening. When a snapshot is found, you will see output in your log that is similar to this:</p>
+
+<pre><code>1PM INF Discovered new snapshot format=1 hash=&#34;S.�h�F���\&#34;\x1d6+\x1e���ޅ��`v@�ц�����&#34; height=1810000 module=statesync
+</code></pre>
+
+<p>It will download, verify, and apply chuncks of blockchain data. When it finishes you will see it catching up to blocks</p>
+
+<h4 id="state-sync-method-2">State Sync Method 2</h4>
+
+<p>The follow commandline code will edit your <code>config.toml</code> with the proper information for state syncing to the most recent snapshot 3000 blocks and beyond.</p>
+
+<pre><code>STATE_SYNC_RPC=https://rpc.jackalprotocol.com:443
+LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
+SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 3000))
+SYNC_BLOCK_HASH=$(curl -s &#34;$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT&#34; | jq -r .result.block_id.hash)
+
+sed -i.bak -e &#34;s|^enable *=.*|enable = true|&#34; $HOME/.canine/config/config.toml
+sed -i.bak -e &#34;s|^rpc_servers *=.*|rpc_servers = \&#34;$STATE_SYNC_RPC,$STATE_SYNC_RPC\&#34;|&#34; \
+  $HOME/.canine/config/config.toml
+sed -i.bak -e &#34;s|^trust_height *=.*|trust_height = $SYNC_BLOCK_HEIGHT|&#34; \
+  $HOME/.canine/config/config.toml
+sed -i.bak -e &#34;s|^trust_hash *=.*|trust_hash = \&#34;$SYNC_BLOCK_HASH\&#34;|&#34; \
+  $HOME/.canine/config/config.toml
+</code></pre>
+
+<p>When you state sync, you can start with the latest version of <code>canined</code>.</p>
+
+<h4 id="versions-for-sync">Versions for Sync</h4>
+
+<table>
+<thead>
+<tr>
+<th>block height</th>
+<th>canined version</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>45381</td>
+<td>1.1.2</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>1.1.0</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="starting-the-daemon">Starting the daemon</h3>
+
+<p>Start the daemon and sync to the current height.</p>
+
+<pre><code>sudo systemctl start jackal
+sudo journalctl -u jackal -f
+</code></pre>
+
+<p>Watch the logs and ensure you are either state syncing correctly, or are syncing up to the current height.</p>
+</body></html></div><div id="snackbar"></div></div><script>window.addEventListener("load", start)
+
+
+function start() {
+    console.log("hello world!")
+
+    const menuButton = document.getElementById("menu")
+    const nav = document.getElementById("navbar")
+    menuButton.addEventListener("click", () => {
+        if (nav.classList.contains("open")) {
+            nav.classList.remove("open")
+        } else {
+            nav.classList.add("open")
+        }
+
+    })
+
+    const codeBlocks = []
+
+    const allPres = document.getElementsByTagName("pre")
+
+    for (const allPre of allPres) {
+        const innerCodeBlocks = allPre.getElementsByTagName("code")
+
+        const code = innerCodeBlocks[0].innerText
+
+
+        const button = document.createElement("button")
+        button.classList.add("copy-button")
+        button.ariaLabel = "Copy Code Button"
+
+        button.addEventListener("click", () => {
+            console.log("yo!")
+
+            navigator.clipboard.writeText(code).then(() => {
+                let x = document.getElementById("snackbar");
+
+                // Add the "show" class to DIV
+                x.innerText = "Code copied to clipboard."
+                x.className = "show";
+
+                // After 3 seconds, remove the show class from DIV
+                setTimeout(function () {
+                    x.className = x.className.replace("show", "");
+                }, 3000);
+
+            })
+
+        }, false)
+
+        allPre.appendChild(button)
+
+    }
+
+    console.log("highlighting...")
+    hljs.highlightAll();
+
+
+
+
+}</script></body></html>
